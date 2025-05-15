@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cross-Cultural Greetings Study</title>
+  <style>
+    :root {
+      --primary: #4a6fa5;
+      --secondary: #166088;
+      --accent: #4fc3f7;
+      --background: #f8f9fa;
+      --text: #333;
+      --light-text: #666;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--background);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    .experiment-container {
+      width: 90%;
+      max-width: 700px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin: 20px 0;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .header h1 {
+      color: var(--secondary);
+      margin-bottom: 10px;
+    }
+    
+    .header p {
+      color: var(--light-text);
+    }
+    
+    .survey-question {
+      font-size: 20px;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f5f9ff;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .cultural-term {
+      color: var(--primary);
+      font-weight: 600;
+      cursor: help;
+      position: relative;
+      display: inline-block;
+      border-bottom: 2px dotted var(--accent);
+      transition: all 0.2s;
+    }
+    
+    .cultural-term:hover {
+      color: var(--secondary);
+    }
+    
+    .cultural-tooltip {
+      position: absolute;
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 15px;
+      width: 250px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 100;
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.2s;
+      pointer-events: none;
+    }
+    
+    .cultural-term:hover .cultural-tooltip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(5px);
+    }
+    
+    .culture-option {
+      margin: 8px 0;
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .culture-name {
+      font-weight: bold;
+      color: var(--secondary);
+      display: block;
+      margin-bottom: 3px;
+    }
+    
+    .culture-detail {
+      color: var(--light-text);
+      font-size: 0.9em;
+    }
+    
+    .response-options {
+      display: flex;
+      justify-content: space-between;
+      margin: 30px 0;
+    }
+    
+    .response-btn {
+      padding: 12px 20px;
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      color: var(--text);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      flex: 1;
+      margin: 0 5px;
+      text-align: center;
+    }
+    
+    .response-btn:hover {
+      background: #f5f9ff;
+      border-color: var(--accent);
+    }
+    
+    .progress-container {
+      margin-top: 30px;
+    }
+    
+    .progress-bar {
+      height: 6px;
+      background: #e0e0e0;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    
+    .progress {
+      height: 100%;
+      width: 25%;
+      background: var(--primary);
+      transition: width 0.3s;
+    }
+    
+    .progress-text {
+      text-align: right;
+      color: var(--light-text);
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      color: var(--light-text);
+      font-size: 0.9em;
+    }
+    
+    .flag-icon {
+      display: inline-block;
+      width: 16px;
+      height: 12px;
+      margin-right: 6px;
+      vertical-align: middle;
+      background-size: cover;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="experiment-container">
+    <div class="header">
+      <h1>Global Greetings Study</h1>
+      <p>Help us understand cultural differences in social interactions</p>
+    </div>
+    
+    <div class="survey-question">
+      When meeting someone for the first time in a professional setting, how often do you <span class="cultural-term">
+        shake hands
+        <div class="cultural-tooltip">
+          <div class="culture-option">
+            <span class="culture-name"><span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/jp.png')"></span>Japan</span>
+            <span class="culture-detail">お辞儀 (Ojigi - bowing, 30° for business)</span>
+          </div>
+          <div class="culture-option">
+            <span class="culture-name"><span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/cn.png')"></span>China</span>
+            <span class="culture-detail">握手 (Wòshǒu - light handshake with nod)</span>
+          </div>
+          <div class="culture-option">
+            <span class="culture-name"><span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/fi.png')"></span>Finland</span>
+            <span class="culture-detail">Hei (Brief handshake or nod)</span>
+          </div>
+          <div class="culture-option">
+            <span class="culture-name"><span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/in.png')"></span>India</span>
+            <span class="culture-detail">नमस्ते (Namaste - palms together)</span>
+          </div>
+          <div class="culture-option">
+            <span class="culture-name"><span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/fr.png')"></span>France</span>
+            <span class="culture-detail">La bise (Cheek kisses in some regions)</span>
+          </div>
+        </div>
+      </span>?
+    </div>
+    
+    <div class="response-options">
+      <div class="response-btn">Never</div>
+      <div class="response-btn">Rarely</div>
+      <div class="response-btn">Sometimes</div>
+      <div class="response-btn">Often</div>
+      <div class="response-btn">Always</div>
+    </div>
+    
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+      <div class="progress-text">Question 1 of 4</div>
+    </div>
+    
+    <div class="footer">
+      <p>University of Cultural Studies • Ethics Approval #2023-456</p>
+    </div>
+  </div>
+</body>
+</html>

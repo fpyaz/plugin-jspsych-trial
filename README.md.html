@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #c77dbb; font-style: italic;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+README.md</font>
+</center></td></tr></table>
+<pre><span class="s0"># </span><span class="s2">plugin-hover-definitions</span>
+
+<span class="s0">## </span><span class="s2">Overview</span>
+
+<span class="s2">A jsPsych plugin that provides hover-over definitions and culturally appropriate synonyms for words. This plugin is designed to help experimenters who have test subjects who may not know certain words, by providing definitions and synonyms when hovering over specific words in the text.</span>
+
+<span class="s0">## </span><span class="s2">Features</span>
+
+<span class="s0">- </span><span class="s2">Hover over words to see their definitions and synonyms</span>
+<span class="s0">- </span><span class="s2">Culturally appropriate synonyms based on locale</span>
+<span class="s0">- </span><span class="s2">Customizable tooltip styling</span>
+<span class="s0">- </span><span class="s2">Tracks which words were hovered over and how many times</span>
+<span class="s0">- </span><span class="s2">Uses a free dictionary API to fetch definitions and synonyms</span>
+
+<span class="s0">## </span><span class="s2">Loading</span>
+
+<span class="s0">```</span><span class="s3">html</span>
+<span class="s4">&lt;!-- Load jsPsych --&gt;</span>
+<span class="s4">&lt;script src=&quot;https://unpkg.com/jspsych@7.3.1&quot;&gt;&lt;/script&gt;</span>
+
+<span class="s4">&lt;!-- Load the plugin --&gt;</span>
+<span class="s4">&lt;script src=&quot;path/to/plugin-hover-definitions.js&quot;&gt;&lt;/script&gt;</span>
+
+<span class="s4">&lt;!-- Load jsPsych stylesheet --&gt;</span>
+<span class="s4">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/jspsych@7.3.1/css/jspsych.css&quot;&gt;</span>
+<span class="s0">```</span>
+
+<span class="s0">## </span><span class="s2">Compatibility</span>
+
+<span class="s2">`plugin-hover-definitions` requires jsPsych v7.0.0 or later.</span>
+
+<span class="s0">## </span><span class="s2">Usage</span>
+
+<span class="s0">### </span><span class="s2">Basic Usage</span>
+
+<span class="s0">```</span><span class="s3">javascript</span>
+<span class="s4">const hoverTrial = {</span>
+  <span class="s4">type: jsPsychPluginHoverDefinitions,</span>
+  <span class="s4">stimulus: `</span>
+    <span class="s4">&lt;p&gt;</span>
+      <span class="s4">The &lt;span data-hover&gt;ubiquitous&lt;/span&gt; nature of technology has led to </span>
+      <span class="s4">&lt;span data-hover&gt;unprecedented&lt;/span&gt; changes in how we communicate.</span>
+    <span class="s4">&lt;/p&gt;</span>
+  <span class="s4">`,</span>
+  <span class="s4">locale: 'en-US',</span>
+  <span class="s4">api_endpoint: 'https://api.dictionaryapi.dev/api/v2/entries/en/'</span>
+<span class="s4">};</span>
+<span class="s0">```</span>
+
+<span class="s0">### </span><span class="s2">Parameters</span>
+
+<span class="s0">| </span><span class="s1">Parameter </span><span class="s0">| </span><span class="s1">Type </span><span class="s0">| </span><span class="s1">Default Value </span><span class="s0">| </span><span class="s1">Description </span><span class="s0">|</span>
+<span class="s0">|-----------|------|---------------|-------------|</span>
+<span class="s0">| </span><span class="s1">stimulus </span><span class="s0">| </span><span class="s1">string </span><span class="s0">| </span><span class="s1">undefined </span><span class="s0">| </span><span class="s1">The HTML content to display. Words that should have hover definitions should be marked with the `data-hover` attribute. </span><span class="s0">|</span>
+<span class="s0">| </span><span class="s1">locale </span><span class="s0">| </span><span class="s1">string </span><span class="s0">| </span><span class="s1">'en-US' </span><span class="s0">| </span><span class="s1">The language/locale code to use for fetching culturally appropriate synonyms. </span><span class="s0">|</span>
+<span class="s0">| </span><span class="s1">api_endpoint </span><span class="s0">| </span><span class="s1">string </span><span class="s0">| </span><span class="s1">'https://api.dictionaryapi.dev/api/v2/entries/en/' </span><span class="s0">| </span><span class="s1">API endpoint for fetching word definitions and synonyms. </span><span class="s0">|</span>
+<span class="s0">| </span><span class="s1">tooltip_style </span><span class="s0">| </span><span class="s1">string </span><span class="s0">| </span><span class="s1">'background-color: #f9f9f9; border: 1px solid #ddd; padding: 10px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 300px; position: absolute; z-index: 1000;' </span><span class="s0">| </span><span class="s1">CSS styling for the tooltip that appears on hover. </span><span class="s0">|</span>
+
+<span class="s0">### </span><span class="s2">Data Generated</span>
+
+<span class="s0">| </span><span class="s1">Name </span><span class="s0">| </span><span class="s1">Type </span><span class="s0">| </span><span class="s1">Description </span><span class="s0">|</span>
+<span class="s0">|------|------|-------------|</span>
+<span class="s0">| </span><span class="s1">stimulus </span><span class="s0">| </span><span class="s1">string </span><span class="s0">| </span><span class="s1">The HTML content that was displayed. </span><span class="s0">|</span>
+<span class="s0">| </span><span class="s1">hovered_words </span><span class="s0">| </span><span class="s1">object </span><span class="s0">| </span><span class="s1">An object containing information about which words were hovered over, how many times, and timestamps. </span><span class="s0">|</span>
+<span class="s0">| </span><span class="s1">locale </span><span class="s0">| </span><span class="s1">string </span><span class="s0">| </span><span class="s1">The language/locale that was used. </span><span class="s0">|</span>
+
+<span class="s0">## </span><span class="s2">Use Cases</span>
+
+<span class="s0">1. </span><span class="s1">**</span><span class="s2">Language Learning Experiments</span><span class="s1">**: </span><span class="s2">Help non-native speakers understand complex vocabulary in experimental instructions or stimuli.</span>
+
+<span class="s0">2. </span><span class="s1">**</span><span class="s2">Educational Research</span><span class="s1">**: </span><span class="s2">Provide definitions for technical terms in educational materials to ensure all participants have access to the same information.</span>
+
+<span class="s0">3. </span><span class="s1">**</span><span class="s2">Cross-Cultural Studies</span><span class="s1">**: </span><span class="s2">Offer culturally appropriate synonyms to ensure participants from different backgrounds understand the intended meaning.</span>
+
+<span class="s0">4. </span><span class="s1">**</span><span class="s2">Accessibility</span><span class="s1">**: </span><span class="s2">Make experiments more accessible to participants with limited vocabulary or language proficiency.</span>
+
+<span class="s0">5. </span><span class="s1">**</span><span class="s2">Reading Comprehension Studies</span><span class="s1">**: </span><span class="s2">Track which words participants need help with to study vocabulary difficulties.</span>
+
+<span class="s0">## </span><span class="s2">Example</span>
+
+<span class="s2">See the `examples/index.html` file for a complete working example of the plugin.</span>
+
+<span class="s0">## </span><span class="s2">Author / Citation</span>
+
+<span class="s2">Franchesca Pichardo</span>
+</pre>
+</body>
+</html>
